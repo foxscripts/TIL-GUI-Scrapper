@@ -20,13 +20,13 @@ class Application(tk.Frame):
         self.get_data = tk.Button(root, text="Get Data", command=self.web_data)
         self.get_data.pack(side="top")
 
-        self.data_msg = tk.Label(root, text="Click the Button!")
+        self.data_msg = tk.Label(root)
         self.data_msg.pack()
 
     def web_data(self):
         for headings in urlContent.find_all('h2'):
             headings = headings.text
-            self.data_msg.config(text = "\n" + str(headings))
+            self.data_msg["text"] += str(headings) + "\n \n" 
 
 root = tk.Tk()
 root.title("TIL scrapper")
